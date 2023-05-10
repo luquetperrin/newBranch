@@ -8,11 +8,27 @@ from datetime import datetime
 class BaseModel:
     """Defines all common attributes/methods for other classes."""
 
-    def __init__(self):
-        """Creating an Object."""
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+    def __init__(self, *args, **kwargs):
+        """Creating an Object.
+        Args:
+            args(tuple): all single elements passed in.
+            kwargs(dict): all key/value arguments passed in.
+        """
+
+        if (kwargs is not None and kwargs != {}):
+            for k, v in kwargs.items():
+                if k == "created_at":
+                    self.created_at = datetime.strptime(v,
+                                                        "%Y-%m-%dT%H:%M:%S.%f")
+                elif k == "updated_at":
+                    self.updated_at = datetime.strptime(v,
+                                                        "%Y-%m-%dT%H:%M:%S.%f")
+                elif k != "__class__":
+                    setattr(self, k, v)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def save(self):
         """Updates the updated_at instance."""
