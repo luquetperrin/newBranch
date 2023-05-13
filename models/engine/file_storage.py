@@ -30,4 +30,10 @@ class FileStorage:
         if os.path.exists(FileStorage.__file_path):
             """Checking if the file/path exists."""
             with open(FileStorage.__file_path) as f:
-                return json.load(f)
+                ret_dict = json.load(f)
+                ret_obj = {k : self.classes()[v['__class__']](**v) for k, v in ret_dict.items()}
+                FileStorage.__objects = ret_obj
+
+    def classes(self):
+        from models.base_model import BaseModel
+        return {"BaseModel": BaseModel}
