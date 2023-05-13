@@ -20,10 +20,10 @@ class HBNBCommand(cmd.Cmd):
         """
         if line is None or line == '':
             print("** class name missing **")
-        elif line != "BaseModel":
+        elif line not in storage.classes().keys():
             print("** class doesn't exist **")
         else:
-            my_model = BaseModel()
+            my_model = storage.classes()[line]()
             my_model.save()
             print(my_model.id)
 
@@ -34,7 +34,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             str_in = line.split()
-            if str_in[0] != "BaseModel":
+            if str_in[0] not in storage.classes().keys():
                 print("** class doesn't exist **")
             elif len(str_in) == 1:
                 print("** instance id missing **")
@@ -52,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             str_in = line.split()
-            if str_in[0] != "BaseModel":
+            if str_in[0] not in storage.classes().keys():
                 print("** class doesn't exist **")
             elif len(str_in) == 1:
                 print("** instance id missing **")
@@ -69,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
         """
         if line is not None or line != '':
             str_in = line.split()[0]
-            if str_in != "BaseModel":
+            if str_in not in storage.classes().keys():
                 print("** class doesn't exist **")
             else:
                 ret_list = []
@@ -85,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
         """
         if line != '' or line is not None:
             str_in = line.split()
-            if str_in[0] != "BaseModel":
+            if str_in[0] not in storage.classes().keys():
                 print("** class doesn't exist **")
             elif str_in[1] is None:
                 print("** instance id missing **")
