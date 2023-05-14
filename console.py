@@ -7,7 +7,7 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """Contains command interpreter implements."""
+    """Contains command interpreter implements or functions."""
 
     prompt = '(hbnb) '
     def emptyline(self):
