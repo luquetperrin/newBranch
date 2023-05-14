@@ -7,6 +7,7 @@ from models.base_model import BaseModel
 import unittest
 import datetime
 
+
 class TestBaseModel(unittest.TestCase):
     """Defines tests on methods."""
 
@@ -54,5 +55,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(type(self.my_new_model.created_at), datetime.datetime)
         self.assertIsNot(self.my_model, self.my_new_model)
         self.assertEqual(type(self.my_new_model), BaseModel)
+
+
 if __name__ == '__main__':
     unittest.main()

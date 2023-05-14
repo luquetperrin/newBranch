@@ -10,6 +10,7 @@ class HBNBCommand(cmd.Cmd):
     """Contains command interpreter implements or functions."""
 
     prompt = '(hbnb) '
+
     def emptyline(self):
         """Does nothing when an empty line is entered.
         """
@@ -28,7 +29,7 @@ class HBNBCommand(cmd.Cmd):
             print(my_model.id)
 
     def do_show(self, line):
-        """Prints the string repr of an instance based on the class name and id.
+        """String repr of an instance based on the class name and id.
         """
         if line == '' or line is None:
             print("** class name missing **")
@@ -115,6 +116,7 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program.
         """
         return True
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
