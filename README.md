@@ -30,7 +30,3 @@ All rights reserved
  **How to use it**
  Type in ```help``` and it will bring all the functions present.
  To use a particular function type ```<function-name>``` and it will execute.
-
-## Contributors :
-* [**Sserunkuuma ibrahim**](https://github.com/sserunkuumaibrahim)
-* [**Nakivumbi Lydia**](https://github.com/LYDIA299)
